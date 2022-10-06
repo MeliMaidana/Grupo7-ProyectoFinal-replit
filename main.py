@@ -50,7 +50,7 @@ def meli2():
 
 @app.route('/cargarPerfiles', methods=["GET", "POST"])
 def cargarPerfiles():
-  if request.method == "POST":
+  if (request.method == "POST"):
     nombre = request.form["nombre"]
     sexo = request.form["sexo"]
     edad = request.form["edad"]
@@ -83,12 +83,11 @@ def refugio():
       print(session['usuario'])
       print(session['contraseña'])
       print("Funciona el formulario refugio")
-      return render_template('home.html')
   else:
     return render_template('home2.html')
 
 @app.route('/tha')
-def eliminarPerfil():
+def borrarPerfil():
   return render_template('borrarPerfil.html')
 
 """

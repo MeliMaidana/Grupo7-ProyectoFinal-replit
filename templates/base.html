@@ -9,7 +9,7 @@
 {% block nav %}
 <nav class="menu">
     <div class= "toggle">
-     <p>|||</a>
+     |||
     </div>
   <ul class="links">
     <li class= "link"><a href="{{ url_for('Inicio') }}">Inicio</a</li>
@@ -24,7 +24,8 @@
 <body>
  
   {% block titulo %}{% endblock %}
-  <script src="main.js"></script>
+</script>
+  <script src="{{url_for('static', filename='scripts/main.js')}}"></script>
 </body>
 </html>
 //https://codepen.io/MijeongLee/pen/LYEXMzR

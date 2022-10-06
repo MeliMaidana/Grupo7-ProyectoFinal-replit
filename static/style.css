@@ -37,7 +37,7 @@ inicio{
   height:92.3vh;
   padding:15px;
   margin:0;
-  background-image: url('img/Fondo.png');
+  background-image: url('img/fondo.png');
   color: #dcdde1;
 }
 
@@ -74,7 +74,7 @@ inicio{
 }
 
 @media screen and (max-width: 800px){
-    .toggle {
+    .toggle.toggle2 {
         display: inline-block;
     }
 
