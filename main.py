@@ -9,6 +9,23 @@ app.secret_key = 'esto-es-una-clave-muy-secreta'
 def index():
     return render_template('probandoFormulario.html')
 
+@app.route('/celes')
+def celes():
+    return render_template('home.html')
+@app.route('/celes2')
+def Inicio():
+    return render_template('Inicio.html')
+@app.route('/celes3')
+def AdoptaGatos():
+    return render_template('AdoptaGatos.html')
+@app.route('/celes4')
+def AdoptaPerros():
+    return render_template('AdoptaPerros.html')
+@app.route('/celes5')
+def Refugio():
+    return render_template('Refugio.html')
+    
+
 @app.route('/meli')
 def meli():
   return render_template('probando.html')
@@ -35,17 +52,22 @@ def meli2():
 def cargarPerfiles():
   if request.method == "POST":
     nombre = request.form["nombre"]
+    sexo = request.form["sexo"]
     edad = request.form["edad"]
     raza = request.form["raza"]
     tamaño = request.form["tamaño"]
     informacion = request.form["informacion"]
     imagen = request.form["imagen"]
-    return ("Funciono")
+    print(nombre)
+    return render_template('base.html')
 
+@app.route('/saludo', methods=["GET", "POST"])
+def irAHome():
+  return render_template('home.html')
+  
 @app.route('/refugio', methods=["GET", "POST"])
 def refugio():
   if request.method == "POST":
-    
     if (request.form["usuario"] != "" and request.form["password"] != ""):
       session['usuario'] = request.form["usuario"]
       session['contraseña'] = request.form["password"]
@@ -53,8 +75,7 @@ def refugio():
       q = f"""SELECT * FROM Refugio WHERE usuario = '{session['usuario']}' and contraseña = '{session['contraseña']}'"""
       resu = conn.execute(q)
       lista = resu.fetchall()
-      
-      if lista[0] != session['usuario']  or lista[1] != session['contraseña']:
+      if lista[0] != session['usuario'] or lista[1] != session['contraseña']:
         mensaje = 'Los datos ingresados son incorrectos'
         return render_template('probandoFormulario.html', mensaje = mensaje)
       conn.commit()      
@@ -66,7 +87,9 @@ def refugio():
   else:
     return render_template('home2.html')
 
-
+@app.route('/tha')
+def eliminarPerfil():
+  return render_template('borrarPerfil.html')
 
 """
 """

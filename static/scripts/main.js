@@ -1,3 +1,13 @@
+
+const toggle = document.querySelector('.toggle')
+const links = document.querySelector('.links')
+
+toggle.addEventListener('click', () => {
+    toggle.classList.toggle('rotate')
+    links.classList.toggle('active')
+})
+
+
 function formulario() {
   var name = document.getElementById("nombre").value 
   var apellido = document.getElementById("apellido").value 
@@ -55,15 +65,17 @@ if (usuario.length == 0 || password.length == 0)  {
     url:"/refugio", 
     type:"POST", 
     data: {"usuario":usuario,
-          "password": password, // aca estaba el problema thames => pusiste contraseñña en vez de password, se dio cuenta meli
+          "password": password,
           }, 
 
     success: function(response){  
       datos = response
+      //console.log(datos)
+      location.href= '/saludo'
       if(datos == true) {
         alert(`Se registro su respuesta`)
       }
-    }, //falta terminar
+    }, 
     error: function(error){ 
       console.log(error); 
   }, });
@@ -79,11 +91,22 @@ function cargarPerfiles() {
   var tamaño = document.getElementById("tamaño").value 
   var informacion = document.getElementById("informacion").value 
   var imagen = document.getElementById("imagen").value 
+  let formData = new FormData($("#form1")[0])
+  console.log(formData)
 
   if (name.length == 0 || sexo.length == 0 || edad.length == 0 || raza.length == 0 || tamaño.length == 0 || informacion.length == 0 || imagen.length == 0)  {
     alert("Faltan ingresar datos")
   }
-  
+
+  let sarasa = {"nombre":name,
+          "sexo": sexo,
+          "edad": edad,
+          "raza": raza,
+          "tamaño": tamaño,
+          "informacion": informacion,
+          "imagen": imagen
+          };
+  console.log(sarasa);
   $.ajax({ 
     url:"/cargarPerfiles", 
     type:"POST", 

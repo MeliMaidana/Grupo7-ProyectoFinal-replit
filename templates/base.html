@@ -8,22 +8,23 @@
 
 {% block nav %}
 <nav class="menu">
-  <div class="logomenu">
-    <span class="abrir menu"><hr><hr><hr></span>
-  </div>
-  <ul class="menuVertical">
-    <li><a href="#">Inicio</a</li>
-    <li><a href="#">Adopta Gatos</a</li>
-    <li><a href="#">Adopta Perros</a</li>
-    <li><a href="#">Inicio</a</li>
-    <li id="user-info">MJ<span>online</span></li>
+    <div class= "toggle">
+     <p>|||</a>
+    </div>
+  <ul class="links">
+    <li class= "link"><a href="{{ url_for('Inicio') }}">Inicio</a</li>
+    <li class= "link"><a href="{{ url_for('AdoptaGatos') }}">Adopta Gatos</a</li>
+    <li class= "link"><a href="{{ url_for('AdoptaPerros') }}"">Adopta Perros</a</li>
+    <li class= "link"><a href="{{ url_for('Refugio') }}">Refugio</a</li>
   </ul>
+
 </nav>
 {% endblock %}
   
 <body>
  
   {% block titulo %}{% endblock %}
-  
+  <script src="main.js"></script>
 </body>
 </html>
+//https://codepen.io/MijeongLee/pen/LYEXMzR
