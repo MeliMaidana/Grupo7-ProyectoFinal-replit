@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" 
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+{% block nav %}
+<nav class="menu">
+  <div class="logomenu">
+    <span class="abrir menu"><hr><hr><hr></span>
+  </div>
+  <ul class="menuVertical">
+    <li><a href="#">Inicio</a</li>
+    <li><a href="#">Adopta Gatos</a</li>
+    <li><a href="#">Adopta Perros</a</li>
+    <li><a href="#">Inicio</a</li>
+    <li id="user-info">MJ<span>online</span></li>
+  </ul>
+</nav>
+{% endblock %}
+  
+<body>
+ 
+  {% block titulo %}{% endblock %}
+  
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FORMULARIO</title>
+  <script src="/static/scripts/main.js">
+</script>
+</head>
+
+<body>
+
+  <form action="{{url_for('formulario')}}" method="POST">
+
+    <label for="name"> Nombre: </label>
+    <input type="text" id="nombre" name="nombre" placeholder="Ejemplo: Carlos" /><br>
+    
+    <label for="apellido">Apellido: </label> 
+    <input type="text" id="apellido" name="apellido" placeholder="Ejemplo: Martinez"/><br>
+
+    <label for="dni">DNI: </label> 
+    <input type="text" id="dni" name="dni" placeholder="Ejemplo: 23668150"/><br>
+
+    <label for="mail"> Mail: </label> 
+    <input type="email" id="mail" name="mail" placeholder="Ejemplo: carlosmartinez@gmail.com"/><br>
+    
+    <label for="telefono"> Teléfono: </label> 
+    <input type="tel" id="telefono" name="telefono" placeholder="Ejemplo: 1157692234"/><br>
+
+    <label for="direccion"> Dirección: </label> 
+    <input type="text" id="direccion" name="direccion" placeholder="Ejemplo: Avenida Rivadavia 5800"/><br>
+
+    <label for="hogar"> Tipo de casa: </label> 
+    <input type="text" id="hogar" name="hogar" placeholder="Ejemplo: Departamento"/><br>
+
+    <label for="mascotas"> Otras mascotas: </label> 
+    <input type="text" id="mascotas" name="mascotas" placeholder="Ejemplo: Dos perros machos"/><br>
+
+    <label for="convivientes"> Integrantes de la familia: </label> 
+    <input type="text" id="convivientes" name="convivientes" placeholder="Ejemplo: Dos hijas y esposo"/><br>
+    
+    <input type="button" id="send-signup" value="Enviar" onclick="formulario()"/>
+
+  </form>
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+</body>
