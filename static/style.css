@@ -39,7 +39,7 @@ nav a.actual {
 }
 */
 body {
-  background-color: #Ffeee3; 
+  /*background-color: #Ffeee3; */
 }
 /* INICIO */
 .container {
@@ -68,7 +68,7 @@ h2{
   font-family: 'Open Sans', sans-serif;;
   font-size: 30px;
   margin-top: 5%;
-  
+  margin-left: -1%;
 }
 .rectangulo{
   width: 100%;
@@ -80,23 +80,47 @@ h2{
   width: 100%;
   text-align: center;
   height: 90%;
-  margin-left: 10%;
+  margin-left: -1%;
   margin-top: 2%;
 }
 .rectangulo3{
   width: 100%;
   text-align: center;
   height: 10%;
-  margin-bottom: 20%;
+  margin-top: -30%;
   display: flex;
 }
-
+.personasTexto{
+  width: 30%;
+  margin-right: 10%;
+  margin-left: 5%;
+  color: #DB9D78;
+  font-size: 15px;
+  font-family: 'Open Sans', sans-serif;;
+}
+.cruzTexto{
+  width: 30%;
+  margin-right: 8%;
+  margin-left: 5%;
+  color: #DB9D78;
+  font-size: 15px;
+  font-family: 'Open Sans', sans-serif;;
+}
+.casaTexto{
+  width: 30%;
+  margin-right: 8%;
+  margin-left: 5%;
+  color: #DB9D78;
+  font-size: 15px;
+  font-family: 'Open Sans', sans-serif;;
+ 
+}
 .personas{
   width:5%;
   height:90%;
   float:left;
   margin-left:13%;
-  margin-right: 10%;
+  margin-right: 20%;
   margin-top: 5%;
 }
 
@@ -105,22 +129,23 @@ h2{
   height:90%;
   float:left;
   margin-left:10%;
-  margin-right: 10%;
+  margin-right: 20%;
   margin-top: 5%;
+  
 }
 
 .casa{
   width:5%;
-  height:60%;
+  height:65%;
   float:left;
-  margin-left:10%;
+  margin-left: 8%;
   margin-right: 10%;
   margin-top: 5%;
 }
 
 /* ADOPTA GATITOS*/
 #kittens {
-  background-color: grey;
+  background-color: #Ffeee3;
   padding: 40px 0;
   
   h2 {
@@ -129,21 +154,52 @@ h2{
 }
 .gatitos{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
   grid-auto-rows: 100px;
+  position: center;
+
   }
 
+.prueba{
+  width:75%;
+  height:160%;
+  float:left;
+  margin-left:30%;
+  margin-right: 20%;
+  margin-top: 5%;
+  
+}
 }
 /* NAV */
+h1{
+  font-family: 'Open Sans', sans-serif;
+  color: #fab68e;
+  font-size: 20px;
+}
+.menu{
+  background-color:#d886568;
+  z-index: -3;
+  margin-top:0;
+  width:100%;
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+ 
 header{
   display:flex
   background-color : orange
 }
 .logo{
-  display:flex;
-  background-position: right bottom;
+  /*background-position: right bottom;*/
   z-index: 3;
+  position: absolute;
+  margin-top: 0 px;
+  margin-bottom: 90%;
+  margin-right: 0 px; 
+  margin-left: 85%;
 }
 .logo img{
   height: 50px
@@ -189,6 +245,8 @@ header{
     font-size: 30px;
     cursor: pointer;
     transition: .3s;
+    rotate: 90deg;
+    z-index: 7;
 }
 
 .rotate {
@@ -208,7 +266,7 @@ header{
         text-align: left;
         overflow: hidden;
         height: 100vh;
-        width: 19%;
+        width: 20%;
         z-index: 5;
         top: -100vh;
         margin-top: -40px;
@@ -222,4 +280,9 @@ header{
   ul{
     list-style-type: none;
   }
+}
+footer{
+  background-color:grey;
+  position:bottom;
+  
 }

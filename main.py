@@ -3,7 +3,7 @@ import sqlite3, os
 from os.path import abspath, dirname, join
 from werkzeug.utils import secure_filename
 UPLOAD_FOLDER = './media'
-ALLOWED_EXTENSION = {'png', 'jpg', 'jpeg'}
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 path = './media'
 path2 = 'img'
 
@@ -39,6 +39,9 @@ def AdoptaGatos():
 def AdoptaPerros():
     return render_template('AdoptaPerros.html')
 @app.route('/celes6')
+def adoptame():
+    return render_template('adoptame.html')
+@app.route('/celes7')
 def Refugio():
     return render_template('Refugio.html')
 
@@ -59,7 +62,9 @@ def formulario():
     hogar = request.form["hogar"]
     mascotas = request.form["mascotas"]
     convivientes = request.form["convivientes"]
-    return ("Funciono")
+
+    print('Formulario enviado')
+    return render_template('inicio.html')
 
 @app.route('/meli2')
 def meli2():
@@ -69,7 +74,11 @@ def meli2():
 def cargarPerfiles():
   if (request.method == "POST"):
     nombre = request.form["nombre"]
-    #imagen = request.form["imagen"]
+    sexo = request.form["sexo"]
+    edad = request.form["edad"]
+    raza = request.form["raza"]
+    tamaño = request.form["tamaño"]
+    informacion = request.form["informacion"]
     file = request.files['imagen']
 
     filename = secure_filename(file.filename)
@@ -77,17 +86,37 @@ def cargarPerfiles():
     file.save(file_path)
     print(file_path)
 
-    if request.form.getlist('perro')[0] == 'perro':
-      print('Perro on')
-    elif request.form.getlist('gato')[1] == 'gato':
-      print('Perro off')
-        #el problema es si seleccionamos sólo gato.
+    print(request.form.get('animal'))
+    
+    if request.form.get('animal') == 'perro':
+      animal = "Perros"
+    elif request.form.get('animal') == 'gato':
+      animal = "Gatos"
+    else:
+      mensaje = "¡Elija un checkbox!"
+      print(mensaje)
+      return render_template('probandoPerfiles.html',
+                             mensaje = mensaje)
+    
+    
+    
+    conn = sqlite3.connect('tabla.db')
+    q = f"""SELECT imagen FROM Gatos WHERE imagen = '{file_path}'"""
+    resu = conn.execute(q)
+    p = f"""SELECT imagen FROM Perros WHERE imagen = '{file_path}'"""
+    resuP = conn.execute(p)
 
-      
-    #conn = sqlite3.connect('tabla.db')
-
-
-
+    if resu.fetchone():
+      print('Por favor renombre el archivo, el anterior ya existe.')
+      return render_template('probandoPerfiles.html')
+    elif resuP.fetchone():
+      print('Por favor renombre el archivo, el anterior ya existe.')
+      return render_template('probandoPerfiles.html')
+    else:  
+      r = f"""INSERT INTO '{animal}' (nombre, sexo, edad, raza, tamaño, informacion, imagen) VALUES ('{nombre}', '{sexo}', '{edad}', '{raza}', '{tamaño}', '{informacion}', '{file_path}');"""
+      conn.execute(r)
+      conn.commit()
+      conn.close()
     
     return render_template('base.html')
 
@@ -121,7 +150,7 @@ def borrarPerfil():
   return render_template('borrarPerfil.html')
 
 """
- sexo = request.form["sexo"]
+    sexo = request.form["sexo"]
     edad = request.form["edad"]
     raza = request.form["raza"]
     tamaño = request.form["tamaño"]

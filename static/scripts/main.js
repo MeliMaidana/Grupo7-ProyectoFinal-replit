@@ -43,9 +43,9 @@ function formulario() {
 
     success: function(response){  
       datos = response
-      if(datos == true) {
+      //if(datos == true) {
         alert(`Se registro su respuesta`)
-      }
+      //}
     }, 
     error: function(error){ 
       console.log(error); 
