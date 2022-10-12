@@ -1,4 +1,10 @@
- /*body {
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+/*font-family: 'Open Sans', sans-serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap');
+/*font-family: 'Pathway Gothic One', sans-serif;*/
+/*
+//https://codepen.io/MijeongLee/pen/LYEXMzR
+body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -32,49 +38,165 @@ nav a.actual {
     font-family: sans-serif;
 }
 */
-inicio{
+body {
+  background-color: #Ffeee3; 
+}
+/* INICIO */
+.container {
+  background-image: url('img/fondo.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+/*.container{
   width:100%;
   height:92.3vh;
   padding:15px;
-  margin:0;
   background-image: url('img/fondo.png');
-  color: #dcdde1;
+}* /
+
+/* MISIÓN */
+.container2{
+  background: #Ffeee3;
+  width:100%;
+  height:92.3vh;
 }
 
+h2{
+  color: #DB9D78;
+  font-family: 'Open Sans', sans-serif;;
+  font-size: 30px;
+  margin-top: 5%;
+  
+}
+.rectangulo{
+  width: 100%;
+  text-align: center;
+  height: 10%;
+}
 
+.rectangulo2{
+  width: 100%;
+  text-align: center;
+  height: 90%;
+  margin-left: 10%;
+  margin-top: 2%;
+}
+.rectangulo3{
+  width: 100%;
+  text-align: center;
+  height: 10%;
+  margin-bottom: 20%;
+  display: flex;
+}
+
+.personas{
+  width:5%;
+  height:90%;
+  float:left;
+  margin-left:13%;
+  margin-right: 10%;
+  margin-top: 5%;
+}
+
+.cruz{
+  width:5%;
+  height:90%;
+  float:left;
+  margin-left:10%;
+  margin-right: 10%;
+  margin-top: 5%;
+}
+
+.casa{
+  width:5%;
+  height:60%;
+  float:left;
+  margin-left:10%;
+  margin-right: 10%;
+  margin-top: 5%;
+}
+
+/* ADOPTA GATITOS*/
+#kittens {
+  background-color: grey;
+  padding: 40px 0;
+  
+  h2 {
+    text-align: center;
+  }
+}
+.gatitos{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: 100px;
+  }
+
+}
+/* NAV */
+header{
+  display:flex
+  background-color : orange
+}
+.logo{
+  display:flex;
+  background-position: right bottom;
+  z-index: 3;
+}
+.logo img{
+  height: 50px
+  
+}
 .links .link {
     display: inline-block;
 }
 
 .links .link a {
     text-decoration: none;
-    color: #d1faf4;
+    color: #fab68e;
     font-size: 20px;
-    margin: 0 25px;
-    letter-spacing: 3px;
+    margin: 0.5px;
+    letter-spacing: 2px;
     transition: .3s;
+    padding: 10px;
 }
 
-.links .link a:hover {
-    color: #487abb;
+.links .link {
+    color: #d886568;
+    margin: 10px 30px;
+    font-size: 0.5rem;
+    background-image: linear-gradient(90deg, #d88656, #db9d78, #fab68d);
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    background-position: left bottom;
+    transition: background-size 700ms ease-in-out; 
+    font-family: 'Open Sans', sans-serif;
 }
+
+.links .link:hover {
+    background-size: 100% 2px;
+}
+
 
 .toggle {
-    color: #d1faf4;
-    margin-right: 20px;
+    color: black;
+    margin-right: 30px;
     font-size: 30px;
-    transform: rotate(90deg);
     cursor: pointer;
     transition: .3s;
-    display: none;
 }
 
 .rotate {
-    transform: rotate(180deg);
+    transform: rotate(90deg);
 }
 
-@media screen and (max-width: 800px){
-    .toggle.toggle2 {
+@media screen{
+    .toggle {
         display: inline-block;
     }
 
@@ -82,22 +204,22 @@ inicio{
         position: absolute;
         display: flex;
         flex-direction: column;
-        background: #021222;
-        text-align: center;
+        background: #ffeee4;
+        text-align: left;
         overflow: hidden;
-        height: calc(100vh - 80px);
-        width: 100%;
-        z-index: -1;
+        height: 100vh;
+        width: 19%;
+        z-index: 5;
         top: -100vh;
+        margin-top: -40px;
         transition: .5s;
+        box-shadow: 2.5px 2.5px 2.5px grey;
     }
 
     .active {
         top: 80px;
     }
-
-    .links .link:hover {
-        background: #051c38;
-    }
-    
+  ul{
+    list-style-type: none;
+  }
 }

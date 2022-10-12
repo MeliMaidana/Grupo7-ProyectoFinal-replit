@@ -10,13 +10,17 @@
 
 <body>
 
-  <form action="{{url_for('cargarPerfiles')}}" method="POST">
+  <form action="{{url_for('cargarPerfiles')}}" method="POST" enctype="multipart/form-data">
 
     <h3> Ponga una mascota en adopción</h3> 
     
     <label for="name">Ingrese el nombre: </label>
     <input type="text" id="nombre" name="nombre" /><br>
-  
+
+    <label for="tipo">Elija la opción que corresponda: </label>
+    <input type="checkbox" id="gato" name="gato" value='gato' /><label for="gato">Gato </label>
+    <input type="checkbox" id="perro" name="perro" value='perro' /> <label for="perro">Perro </label> <br>
+    
     <label for="sexo">Ingrese el sexo: </label> 
     <input type="text" id="sexo" name="sexo" /><br>
 

@@ -6,26 +6,37 @@
     href="{{ url_for('static', filename='style.css') }}">
 </head>
 
-{% block nav %}
-<nav class="menu">
-    <div class= "toggle">
-     |||
-    </div>
-  <ul class="links">
-    <li class= "link"><a href="{{ url_for('Inicio') }}">Inicio</a</li>
-    <li class= "link"><a href="{{ url_for('AdoptaGatos') }}">Adopta Gatos</a</li>
-    <li class= "link"><a href="{{ url_for('AdoptaPerros') }}"">Adopta Perros</a</li>
-    <li class= "link"><a href="{{ url_for('Refugio') }}">Refugio</a</li>
-  </ul>
-
-</nav>
-{% endblock %}
-  
-<body>
  
+<body>
+ <header>
+   {%block logo%}
+   
+   {%endblock%}
+   {% block nav %}
+  <nav class="menu">
+      <div class= "toggle">
+       |||
+      </div>
+      <div class="logo">
+     <img class="logo" src="{{ url_for('static', filename='img/logo.png') }}">
+      </div>
+    <ul class="links">
+      <li class= "link"><a href="{{ url_for('Inicio') }}">Inicio</a</li>
+      <li class= "link"><a href="{{ url_for('AdoptaGatos') }}">Adopta Gatos</a</li>
+      <li class= "link"><a href="{{ url_for('AdoptaPerros') }}"">Adopta Perros</a</li>
+      <li class= "link"><a href="{{ url_for('mision') }}">Nuestra misión</a</li>
+      <li class= "link"><a href="{{ url_for('Refugio') }}">Refugio</a</li>
+    </ul>
+  
+  </nav>
+  {% endblock %}
+ 
+ </header>
+  
   {% block titulo %}{% endblock %}
-</script>
-  <script src="{{url_for('static', filename='scripts/main.js')}}"></script>
+  {% block content %}{% endblock content %}
+
+
+<script src="{{url_for('static', filename='scripts/main.js')}}"></script>
 </body>
 </html>
-//https://codepen.io/MijeongLee/pen/LYEXMzR
