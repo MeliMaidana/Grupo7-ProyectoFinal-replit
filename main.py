@@ -145,35 +145,34 @@ def refugio():
   else:
     return render_template('home2.html')
 
-@app.route('/tha')
+@app.route('/borrar')
 def borrarPerfil():
   return render_template('borrarPerfil.html')
 
+@app.route('/mostrarGatos')
+def mostrarGatos():
+  conn = sqlite3.connect('tabla.db')
+  q = f"""SELECT * FROM Gatos"""
+  resu = conn.execute(q)
+
+  gatos = []
+  imagenGatos = []
+  for i in resu:
+    gatos.append(i)
+  for i in gatos:
+    imagenGatos.append(i[-1])
+    
+  largo = len(gatos)
+  #lista = resu.fetchall()
+  conn.commit()      
+  conn.close()
+  print(gatos)
+  
+  
+  return render_template('mostrarGatos.html', gatos = gatos, largo = largo, imagenGatos = imagenGatos)
+
 """
-    sexo = request.form["sexo"]
-    edad = request.form["edad"]
-    raza = request.form["raza"]
-    tamaño = request.form["tamaño"]
-    informacion = request.form["informacion"]
-
-
-
-    q = fSELECT imagen FROM Gatos WHERE imagen = '{file_path}'
-    resu = conn.execute(q)
-    p = fSELECT imagen FROM Perros WHERE imagen = '{file_path}'
-    resuP = conn.execute(p)
-
-    if resu.fetchone():
-      print('Por favor renombre el archivo, el anterior ya existe.')
-      return render_template('probandoPerfiles.html')
-    elif resuP.fetchone():
-      print('Por favor renombre el archivo, el anterior ya existe.')
-      return render_template('probandoPerfiles.html')
-    else:  
-      r = f INSERT INTO Perros (imagen) VALUES ('{file_path}');
-      conn.execute(r)
-      conn.commit()
-      conn.close()
+  
 """
 app.run(host='0.0.0.0', port=81)
 

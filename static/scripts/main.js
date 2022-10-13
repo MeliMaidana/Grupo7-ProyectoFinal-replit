@@ -44,7 +44,8 @@ function formulario() {
     success: function(response){  
       datos = response
       //if(datos == true) {
-        alert(`Se registro su respuesta`)
+      alert(`Se registro su respuesta`)
+      location.href= '/saludo'
       //}
     }, 
     error: function(error){ 
@@ -82,7 +83,7 @@ if (usuario.length == 0 || password.length == 0)  {
 
 }
 
-
+/*
 function cargarPerfiles() {
   var name = document.getElementById("nombre").value 
   var sexo = document.getElementById("sexo").value 
@@ -97,6 +98,7 @@ function cargarPerfiles() {
   if (name.length == 0 || sexo.length == 0 || edad.length == 0 || raza.length == 0 || tamaño.length == 0 || informacion.length == 0 || imagen.length == 0)  {
     alert("Faltan ingresar datos")
   }
+
 
   let sarasa = {"nombre":name,
           "sexo": sexo,
@@ -121,6 +123,33 @@ function cargarPerfiles() {
 
     success: function(response){  
       datos = response
+      if(datos == true) {
+        alert(`Se registro su respuesta`)
+      }
+    }, 
+    error: function(error){ 
+      console.log(error); 
+  }, });
+
+}
+*/
+
+function borrarPerfil() {
+  var nombre = document.getElementById("nombre").value 
+if (nombre.length == 0) {
+    alert("Faltan ingresar datos")
+  }
+  
+  $.ajax({ 
+    url:"/borrar", 
+    type:"POST", 
+    data: {"nombre": nombre,
+          }, 
+
+    success: function(response){  
+      datos = response
+      //console.log(datos)
+      location.href= '/saludo'
       if(datos == true) {
         alert(`Se registro su respuesta`)
       }

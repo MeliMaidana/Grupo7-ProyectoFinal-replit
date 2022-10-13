@@ -155,12 +155,22 @@ h2{
 .gatitos{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
+  grid-gap: 10px 10px;
+  column-gap: 10px;
+  row-gap: 10px;
   grid-auto-rows: 100px;
   position: center;
 
   }
-
+.rectanguloGato{
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding:5%;
+  font-size: 30px;
+  text-align: center;
+  width:75%;
+  height:180%;
+}
 .prueba{
   width:75%;
   height:160%;
@@ -187,10 +197,15 @@ h1{
   
 }
 
- 
+.barraNav{
+  list-style-type: none;
+  background-color:#d886568;
+  border:2px;
+  width:100%;
+}
 header{
   display:flex
-  background-color : orange
+  background-color : #d886568
 }
 .logo{
   /*background-position: right bottom;*/

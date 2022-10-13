@@ -1,3 +1,26 @@
-{% extends 'base.html' %}
-<button type="submit" class="boton play"  href="{{ url_for('borrarPerfil') }}"> ELIMINAR </button>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BORRAR PERFILES</title>
+  <script src="/static/scripts/main.js">
+</script>
+</head>
+
+<body>
+  <h1>ADMINISTRADOR</h1>
+  <form action="{{url_for('borrar')}}" method="POST">
+
+    <label for="nombre"> Ingrese el nombre de la mascota que desea eliminar: </label>
+    <input type="text" id="nombre" name="nombre" /><br>
+
+    
+    <button type="button" class="boton play"  onclick="borrarPerfil()"> ELIMINAR </button>
+
+  </form>
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+</body>

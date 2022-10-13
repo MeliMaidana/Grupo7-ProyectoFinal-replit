@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+<body>
+   {% block content %}
+
+  <form action="{{url_for('formulario')}}" method="POST">
+
+   <label for="nombre">Nombre:</label>
+                <input type="text" name= "nombre" class="form-control" id="nombre" required="obligatorio" placeholder="Ejemplo: Carlos">
+                  
+                <label for="apellido">Apellido:</label>
+                <input type="text" name= "apellido" class="form-control" id="apellido" required="obligatorio" placeholder="Ejemplo: Martinez">
+                  
+                <label for="dni">DNI:</label>
+                <input type="number" name= "dni" class="form-control" id="dni" required="obligatorio" placeholder="Ejemplo: 23668150">
+                  
+                <label for="mail">Mail:</label>
+                <input type="email" name= "mail" class="form-control" id="mail" required="obligatorio" pattern="https://.*" placeholder="Ejemplo: carlosmartinez@gmail.com">
+                  
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" name= "telefono" class="form-control" pattern="[+]{54 9 11}[0-8]" id="telefono" required="obligatorio" placeholder="Ejemplo: 1157692234">
+                  
+                <label for="direccion">Dirección:</label>
+                <input type="text" name= "direccion" class="form-control" id="direccion" required="obligatorio" placeholder="Ejemplo: Avenida Rivadavia 5800">
+                  
+                <label for="tipoCasa">Tipo de casa:</label>
+                <input type="text" name= "hogar" class="form-control" id="tipoCasa" required="obligatorio" placeholder="Ejemplo: Departamento">
+
+                <label for="otrasMascotas">Otras Mascotas:</label>
+                <input type="text" name= "mascotas" class="form-control" id="otrasMascotas" required="obligatorio" placeholder="Ejemplo: Dos perros machos">
+
+                <label for="convivientes">Convivientes:</label>
+                <input type="text" name= "convivientes" class="form-control" id="convivientes" required="obligatorio" placeholder="Ejemplo: Ejemplo: Dos hijas y esposo">
+    
+    <input type="button" id="send-signup" value="Enviar" onclick="formulario()"/>
+
+  </form>
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+  {% endblock content %}
+</body>
