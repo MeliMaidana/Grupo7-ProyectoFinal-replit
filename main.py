@@ -101,18 +101,18 @@ def cargarPerfiles():
       resuP = conn.execute(p)
   
       if resu.fetchone():
-        print('Por favor renombre el archivo, el anterior ya existe.')
-        return render_template('probandoPerfiles.html')
+        mensaje2 = "Por favor renombre el archivo, el anterior ya existe."
+        return render_template('probandoPerfiles.html', mensaje2 = mensaje2)
       elif resuP.fetchone():
-        print('Por favor renombre el archivo, el anterior ya existe.')
-        return render_template('probandoPerfiles.html')
+        mensaje2 = "Por favor renombre el archivo, el anterior ya existe."
+        return render_template('probandoPerfiles.html', mensaje2 = mensaje2)
       else:  
         r = f"""INSERT INTO '{animal}' (nombre, sexo, edad, raza, tamaño, informacion, imagen) VALUES ('{nombre}', '{sexo}', '{edad}', '{raza}', '{tamaño}', '{informacion}', '{file_path}');"""
         conn.execute(r)
         conn.commit()
         conn.close()
       
-      return render_template('inicio.html')
+      return render_template('probandoPerfiles.html')
     else:
       return redirect('/formularioRefugio')
     

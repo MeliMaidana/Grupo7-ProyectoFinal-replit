@@ -279,7 +279,7 @@ function eliminar(nombre, mascota) {
       console.log(datos)
       console.log(nombre)
       document.getElementById(nombre).remove()
-      alert("Se eliminó " + datos + " " + nombre)
+      alert("Se eliminó " + datos)
       
     }, 
     error: function(error){ 

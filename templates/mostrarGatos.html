@@ -13,23 +13,23 @@
     text-align: center "> {{ gatos[linea][1] }} </h2>
           </div>
 <!--           <input type="hidden" name="gatoSeleccionado" value="{{ imagenGatos[linea][1:] }}" -->
-        </form>
+        </form id="perfil">
       
         <!-- Modal -->
-        <dialog id="modal{{ gatos[linea][1] }}">
+        <dialog class= "formPerfil"id="modal{{ gatos[linea][1] }}">
         <form method="dialog">
           <p>
             <label for="favAnimal">Perfil seleccionado:</label>
           </p>
-          <p>Nombre: {{ gatos[linea][1] }}  </p>
-          <p>Sexo: {{ gatos[linea][2] }}  </p>
-          <p>Edad: {{ gatos[linea][3] }}  </p>
-          <p>Raza: {{ gatos[linea][4] }}  </p>
-          <p>Tamaño: {{ gatos[linea][5] }}  </p>
-          <p>Descripción: {{ gatos[linea][6] }}  </p> <br/>
+          <p id="perfil">Nombre: {{ gatos[linea][1] }}  </p>
+          <p id="perfil">Sexo: {{ gatos[linea][2] }}  </p>
+          <p id="perfil">Edad: {{ gatos[linea][3] }}  </p>
+          <p id="perfil">Raza: {{ gatos[linea][4] }}  </p>
+          <p id="perfil">Tamaño: {{ gatos[linea][5] }}  </p>
+          <p id="perfil">Descripción: {{ gatos[linea][6] }}  </p> <br/>
           <div>
-            <button id="cancel" onclick="ocultarModal('{{ gatos[linea][1] }}')" type="reset">Cerrar</button>
-            <button onclick="redirigir()" type="button" class="btn btn-primary">Adoptar</button>
+            <button id="botonAdmin1" onclick="ocultarModal('{{ gatos[linea][1] }}')" type="reset">Cerrar</button>
+            <button id="botonAdmin1" onclick="redirigir()" type="button" class="btn btn-primary">Adoptar</button>
           </div>
         </form>
         </dialog>
