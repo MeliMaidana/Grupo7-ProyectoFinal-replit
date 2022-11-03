@@ -1,46 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cargar perfiles</title>
-
-</head>
-
+{% extends 'base.html' %}
 <body>
-
-  <form action="{{url_for('cargarPerfiles')}}" method="POST" enctype="multipart/form-data">
-
-    <p>{{mensaje}}</p>
-    <h3> Ponga una mascota en adopción</h3> 
-    
-    <label for="name">Ingrese el nombre: </label>
-    <input required type="text" id="nombre" name="nombre" /><br>
-
-    <label for="tipo">Elija la opción que corresponda: </label>
-    <input type="checkbox" id="gato" name="animal" value='gato' /><label for="gato">Gato </label>
-    <input type="checkbox" id="perro" name="animal" value='perro' /> <label for="perro">Perro </label> <br>
-    
-    <label for="sexo">Ingrese el sexo: </label> 
-    <input required type="text" id="sexo" name="sexo" /><br>
-
-    <label for="edad">Ingrese la edad: </label> 
-    <input required type="number" id="edad" name="edad" /><br>
-    
-    <label for="raza">Ingrese la raza: </label> 
-    <input required type="text" id="raza" name="raza" /><br>
-
-    <label for="tamaño">Ingrese el tamaño: </label> 
-    <input required type="text" id="tamaño" name="tamaño" /><br>
-
-    <label for="información"> Ingrese una breve descripción de la mascota: </label> 
-    <input required type="text" id="informacion" name="informacion"/><br>
-
-    <label for="imagen"> Adjunte una imágen: </label> 
-    <input required type="file" id="imagen" name="imagen" accept="image/png,image/jpeg,image/jpg"><br>
-
-    <input type="submit" id="send-signup" value="Enviar">
-  </form>
+  {% block content %}
+  <div class="rectanguloAdopcion"> 
+    <div class= "adopcionInterior">
   
+      <h1 id="cargar">Cargar perfiles</h1>
+    
+      <form action="{{url_for('cargarPerfiles')}}" method="POST" enctype="multipart/form-data">
+    
+        <p>{{mensaje}}</p>
+        <h3> Ponga una mascota en adopción</h3> 
+        
+        <label for="name">Ingrese el nombre: </label>
+        <input required type="text" id="nombre" name="nombre" /><br>
+        <label for="tipo">Elija la opción que corresponda: </label><br>
+        <div class="checkboxs">
+
+        <input class= "checkBoxAnimal1" type="checkbox" id="gato" name="animal" value='gato' onclick="deseleccionar('perro')"/><label class="label1" for="gato">Gato </label>
+        <input class= "checkBoxAnimal2" type="checkbox" id="perro" name="animal" value='perro' onclick="deseleccionar('gato')"/> <label class="label2"for="perro">Perro </label> 
+        </div>
+        <br>
+        <label for="sexo">Ingrese el sexo: </label> 
+        <input required type="text" id="sexo" name="sexo" /><br>
+    
+        <label for="edad">Ingrese la edad: </label> 
+        <input required type="text" id="edad" name="edad" /><br>
+        
+        <label for="raza">Ingrese la raza: </label> 
+        <input required type="text" id="raza" name="raza" /><br>
+    
+        <label for="tamaño">Ingrese el tamaño: </label> 
+        <input required type="text" id="tamaño" name="tamaño" /><br>
+    
+        <label for="información"> Ingrese una breve descripción de la mascota: </label> 
+        <input required type="text" id="informacion" name="informacion"/><br>
+    
+        
+        <input id="selecArchivo" required type="file" name="imagen" accept="image/png,image/jpeg,image/jpg" style="display:none"><br>
+        <button type="button">
+          <label for="selecArchivo" id="selecArchivo"> Adjunte una imagen </label> 
+        </button>
+        <br>
+        <input type="submit" class = "botonAdmin" id="send-signup" value="Enviar" style ="margin-top: 6%;">
+      </form>
+    
+      <br/>
+      <button type="button" class="botonAdmin" onclick="pagAnterior()"> VOLVER</button>
+    </div>
+  </div>
+{% endblock content %} 
 </body>

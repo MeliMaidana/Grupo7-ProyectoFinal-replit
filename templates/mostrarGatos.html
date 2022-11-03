@@ -1,27 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MOSTRAR PERFILES GATOS</title>
-  <script src="/static/scripts/main.js">
-</script>
-</head>
-
+{% extends 'base.html' %}
 <body>
-  <h1>Perfiles Gatos</h1>
-  <ol>
-    {% for linea in range (largo) %}
-      <li>{{ gatos[linea] }}  </li><br/>
-    {% endfor %}
-  </ol>
-  <ol>
-    {% for linea in range (largo) %}
-      <li><img src={{imagenGatos[linea]}} alt="Imagen">
-      <img src = "{{ url_for(imagenGatos[linea])}}"></li><br/>
-    {% endfor %}
-  </ol>
+  {% block content %}
+  <div class="scroollAnimalitos">
+    <h1>Conoce a nuestros Felinos!</h1>
+    <div class="tablaAnimalitos">
+      {% for linea in range (largo) %} 
+        <form action="{{url_for('mostrarGatos')}}" method="POST">
+          
+          <div class= "cuadradoAnimalito"> 
+            <img id="animal" class="imagenesAnimales"  alt="{{ gatos[linea][1] }} "onclick="probarModal('{{ gatos[linea][1] }}');  seleccionar('{{ imagenGatos[linea] }}')" src = "{{ imagenGatos[linea][1:] }}"> 
+            <h2 class="nombreMascota" style="
+    text-align: center "> {{ gatos[linea][1] }} </h2>
+          </div>
+<!--           <input type="hidden" name="gatoSeleccionado" value="{{ imagenGatos[linea][1:] }}" -->
+        </form>
+      
+        <!-- Modal -->
+        <dialog id="modal{{ gatos[linea][1] }}">
+        <form method="dialog">
+          <p>
+            <label for="favAnimal">Perfil seleccionado:</label>
+          </p>
+          <p>Nombre: {{ gatos[linea][1] }}  </p>
+          <p>Sexo: {{ gatos[linea][2] }}  </p>
+          <p>Edad: {{ gatos[linea][3] }}  </p>
+          <p>Raza: {{ gatos[linea][4] }}  </p>
+          <p>Tamaño: {{ gatos[linea][5] }}  </p>
+          <p>Descripción: {{ gatos[linea][6] }}  </p> <br/>
+          <div>
+            <button id="cancel" onclick="ocultarModal('{{ gatos[linea][1] }}')" type="reset">Cerrar</button>
+            <button onclick="redirigir()" type="button" class="btn btn-primary">Adoptar</button>
+          </div>
+        </form>
+        </dialog>
+        {% endfor %}
+    </div>
+  <!-- Fin Modal -->
+  </div>
+
+  
+  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
 </script>
+{% endblock content %}
 </body>

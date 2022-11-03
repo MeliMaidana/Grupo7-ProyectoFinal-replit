@@ -25,7 +25,9 @@ function formulario() {
   }
   if (name.length == 0 || apellido.length == 0 || dni.length == 0 || correo.length == 0 || telefono.length == 0 || direccion.length == 0 || hogar.length == 0 || mascotas.length  == 0 || convivientes.length == 0 || contieneArroba == false)  {
     alert("Faltan ingresar datos")
+    return 0;
   }
+  
   
   $.ajax({ 
     url:"/formulario", 
@@ -45,7 +47,7 @@ function formulario() {
       datos = response
       //if(datos == true) {
       alert(`Se registro su respuesta`)
-      location.href= '/saludo'
+      location.href= '/'
       //}
     }, 
     error: function(error){ 
@@ -55,24 +57,33 @@ function formulario() {
 }
 
 function formularioRefugio() {
-  var usuario = document.getElementById("usuario").value 
-  var password = document.getElementById("password").value 
-  console.log(password)
-if (usuario.length == 0 || password.length == 0)  {
+  var usuario = document.getElementById("usuario")
+  var password = document.getElementById("password") 
+  console.log(password.value)
+/*
+if (usuario.value.length == 0 || password.value.length == 0)  {
     alert("Faltan ingresar datos")
+    password.value = "";
   }
+else{
+  document.getElementById("formularioRefugio").submit()
+  location.href='/borrar'
+}*/
+  document.getElementById("formularioRefugio").submit()
+  /*location.href='/refugio'*/
   
   $.ajax({ 
     url:"/refugio", 
     type:"POST", 
-    data: {"usuario":usuario,
+    data: {"usuario": usuario,
           "password": password,
           }, 
 
     success: function(response){  
       datos = response
       //console.log(datos)
-      location.href= '/saludo'
+      console.log('Llega al java')
+      location.href= '/opcionesAdmin'
       if(datos == true) {
         alert(`Se registro su respuesta`)
       }
@@ -83,7 +94,18 @@ if (usuario.length == 0 || password.length == 0)  {
 
 }
 
-/*
+function redirigirAdminBorrar() {
+  location.href = "/borrar";
+}
+
+function redirigirAdminCargar() {
+  location.href = "/cargarPerfiles";
+}
+
+function pagAnterior() {
+  location.href = "/opcionesAdmin";
+}
+
 function cargarPerfiles() {
   var name = document.getElementById("nombre").value 
   var sexo = document.getElementById("sexo").value 
@@ -100,7 +122,7 @@ function cargarPerfiles() {
   }
 
 
-  let sarasa = {"nombre":name,
+  let info = {"nombre":name,
           "sexo": sexo,
           "edad": edad,
           "raza": raza,
@@ -108,7 +130,7 @@ function cargarPerfiles() {
           "informacion": informacion,
           "imagen": imagen
           };
-  console.log(sarasa);
+  console.log(info);
   $.ajax({ 
     url:"/cargarPerfiles", 
     type:"POST", 
@@ -132,13 +154,28 @@ function cargarPerfiles() {
   }, });
 
 }
-*/
 
-function borrarPerfil() {
+
+function borrarPerfilGato() {
+  nombreGato = document.getElementById("nombreGato")
+  
+  $.ajax({ 
+    url:"/opcionesBorrarGato", 
+    type:"POST", 
+    data: {"nombreGato": nombreGato,
+          }, 
+
+    success: function(response){  
+      datos = response
+    }, 
+    error: function(error){ 
+      console.log(error); 
+  }, });
+
+}
+
+function borrarPerfilPerro() {
   var nombre = document.getElementById("nombre").value 
-if (nombre.length == 0) {
-    alert("Faltan ingresar datos")
-  }
   
   $.ajax({ 
     url:"/borrar", 
@@ -148,14 +185,104 @@ if (nombre.length == 0) {
 
     success: function(response){  
       datos = response
-      //console.log(datos)
-      location.href= '/saludo'
-      if(datos == true) {
-        alert(`Se registro su respuesta`)
-      }
     }, 
     error: function(error){ 
       console.log(error); 
   }, });
 
+}
+
+function seleccionar(animal) {
+  animal = animal
+  console.log(animal)
+  $.ajax({ 
+    url:"/seleccionarGato", 
+    type:"POST", 
+    data: {"animal": animal,
+          }, 
+
+    success: function(response){  
+      console.log(animal)
+      location.href= '/seleccionarGato'
+      datos = (response); 
+      console.log(datos)
+      
+    }, 
+    error: function(error){ 
+      console.log(error); 
+  }, });
+}
+
+function seleccionar(animal) { 
+  animal = animal
+  console.log(animal)
+  $.ajax({ 
+    url:"/seleccionarPerro", 
+    type:"POST", 
+    data: {"animal": animal,
+          }, 
+
+    success: function(response){  
+      console.log(animal)
+      location.href= '/seleccionarPerro'
+      datos = (response); 
+      console.log(datos)
+      
+    }, 
+    error: function(error){ 
+      console.log(error); 
+  }, });
+}
+
+
+
+function probarModal(nombre) {
+  dialog = document.getElementById("modal"+nombre);
+  dialog.showModal();
+}
+
+function ocultarModal(nombre) {
+  dialog = document.getElementById("modal"+nombre);
+  dialog.close();
+}
+
+function redirigir() {
+  location.href = "/formulario";
+}
+
+function redirigirRefugio() {
+  location.href = "/formularioRefugio";
+}
+
+function deseleccionar(check) {
+  if (document.getElementById(check).checked == true) {
+    document.getElementById(check).checked = false
+  }
+}
+
+
+
+function eliminar(nombre, mascota) {
+  nombre = nombre
+  mascota = mascota
+  console.log(mascota)
+  console.log(nombre)
+  $.ajax({ 
+    url:"/eliminar", 
+    type:"POST", 
+    data: {"nombre": nombre,
+           "mascota": mascota,
+          }, 
+
+    success: function(response){  
+      datos = (response); 
+      console.log(datos)
+      console.log(nombre)
+      document.getElementById(nombre).remove()
+      alert("Se eliminó " + datos + " " + nombre)
+      
+    }, 
+    error: function(error){ 
+      console.log(error); 
+  }, });
 }

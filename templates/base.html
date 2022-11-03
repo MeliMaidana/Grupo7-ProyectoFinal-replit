@@ -7,53 +7,50 @@
 
  
 <body>
- <header>
+ <header style="
+    width: 100vw;
+    margin: 0px;">
    {%block logo%}
    
    {%endblock%}
    {% block nav %}
   <nav class="menu">
-    <table class= "barraNav" >
-      <tr>
-      <td>
-        <div class= "toggle">
-         |||
-        </div>
-      </td>
-     
-      <td>
-        <ul class="links">
-          <li class= "link"><a href="{{ url_for('Inicio') }}">Inicio</a></li>
-          <li class= "link"><a href="{{ url_for('AdoptaGatos') }}">Adopta Gatos</a></li>
-          <li class= "link"><a href="{{ url_for('AdoptaPerros') }}"">Adopta Perros</a></li>
-          <li class= "link"><a href="{{ url_for('mision') }}">Nuestra misión</a></li>
-          <li class= "link"><a href="{{ url_for('Refugio') }}">Refugio</a></li>
-        </ul>
+      <div class= "toggle">
+       |||
+      </div>
+   
+      <ul class="links">
+      <li class= "link"><a href="{{ url_for('Index') }}">Inicio</a></li>
+      <li class= "link"><a href="{{ url_for('mostrarGatos') }}">Adopta Gatos</a></li>
+      <li class= "link"><a href="{{ url_for('mostrarPerros') }}"">Adopta Perros</a></li>
+      <li class= "link"><a href="{{ url_for('mision') }}">Nuestra misión</a></li>
+      <li class= "link"><a href="{{ url_for('Refugio') }}">Refugio</a></li>
+    </ul>
+   
+    <div class="logo">
+         <img src="{{ url_for('static', filename='img/logo.png') }}">
+    </div>
+    <div class="nombreRefugio">Huellitas</div>
  
-      </td>
-      <td>
-        <div class="logo" style="float:right">
-          <img class="logo" src="{{ url_for('static', filename='img/logo.png') }}">
-          <h1>Huellitas</h1>
-        </div>
-      </td>
-    </tr>
-    </table>
-  </nav>
-     
+ 
+  </nav>     
   {% endblock %}
  
  </header>
-  
-  {% block titulo %}{% endblock %}
+  <main class="cajaContenido">
   {% block content %}{% endblock content %}
+  </main>
 
+
+
+  <footer style=" background-color: #db9d78; 
+    width: 100vw;
+    margin: 0px;">
+    <h4>refugio grupo07</h4>
+  </footer>
 
 <script src="{{url_for('static', filename='scripts/main.js')}}"></script>
-<div>
-  <footer>
-    <p>refugio grupo07</p>
-  </footer>
-</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+  </script>
 </body>
 </html>

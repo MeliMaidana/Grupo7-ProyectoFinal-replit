@@ -1,24 +1,28 @@
 {% extends 'base.html' %}
 <body>
-  <div class="parte1">
-    <div class="rectangulo">
-          <div calss="adoptar">
-            <img class="personas" src="{{ url_for('static', filename='img/iconoPersonas.png') }}">
-            <button name="button">Adoptame</button>
-          </div>
-    </div>
-    
-    <div class="rectangulo2">
-        <div calss="datos">
-          
+{% block content %}
+  <h1> Conoce a nuestros Felinos! </h1>
+  <div class="fila">
+        <div class="columna">
+            <img src="https://picsum.photos/800/600">
+        </div>
+        <div class="columna">
+            <img src="https://picsum.photos/800/600">
+        </div>
+        <div class="columna">
+            <img src="https://picsum.photos/800/600">
         </div>
     </div>
-
-     <div class="rectangulo3">
-        <div calss="informacionAdicional">
-          
+    <div class="fila">
+        <div class="columna">
+            <img src="https://picsum.photos/800/600">
+        </div>
+        <div class="columna">
+            <img src="https://picsum.photos/800/600">
+        </div>
+        <div class="columna">
+            <img src="https://picsum.photos/800/600">
         </div>
     </div>
-  
-  </div>
+{% endblock content %}
 </body>
